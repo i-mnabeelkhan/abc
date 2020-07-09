@@ -1,0 +1,337 @@
+@charset "utf-8";
+
+//**************************************************
+//------------------- Import a Google Font
+@import url("https://fonts.googleapis.com/css?family=Nunito:400,700");
+//**************************************************
+//------------------- Set your brand colors
+$purple: #FDD007;
+$primary-dark: lighten(#000, 2%);
+$family-sans-serif: "Nunito";
+$family-primary: $family-sans-serif;
+$link: $purple;
+$border-rounded: 12px;
+$primary: $purple;
+$lowBlack: #4a4a4a;
+//**************************************************
+//------------------- helpers
+.my-container {
+  width: 85vw;
+  margin: auto;
+}
+.has-border-top {
+  border-top: 1px solid #e6ecf8;
+}
+.is-rounded {
+  border-width: 2px !important;
+}
+.h-100vh {
+  min-height: 100vh;
+}
+.subtitle {
+  line-height: 1.5 !important;
+}
+.box {
+  border-radius: 12px !important;
+}
+//**************************************************
+//-------------------elements styling
+html {
+  scroll-behavior: smooth;
+}
+a,
+.button {
+  transition: all 0.2s ease-in-out;
+  -webkit-transition: all 0.2s ease-in-out;
+}
+//**************************************************
+//-------------------main navbar
+#navbar {
+  background-color: #fff;
+  position: absolute;
+  padding-top: 2rem;
+  margin: 0 auto;
+  width: 100vw;
+  transition: 0.5s all ease-in-out;
+  #nav {
+    width: 85vw;
+    background-color: transparent !important;
+    margin: 0 auto;
+    transition: 0.5s all ease-in-out;
+  }
+}
+//**************************************************
+//-------------------sticky navbar on top
+.sticky {
+  position: fixed !important;
+  padding-top: 0 !important;
+  width: 100vw !important;
+  background-color: #141c3a !important;
+  z-index: 999;
+  .is-active {
+    color: $primary;
+    position: relative;
+    &:after {
+      position: absolute;
+      content: "";
+      width: 100%;
+      border-radius: 4px;
+      bottom: 15%;
+      left: 0;
+      height: 3px;
+      background-color: white;
+      z-index: 1;
+    }
+  }
+  .navbar-item,
+  .button.is-primary.is-outlined {
+    color: #fff !important;
+  }
+}
+//**************************************************
+//-------------------main hero section
+#hero-section {
+  transition: 0.5s all ease-in-out;
+}
+.sticky + #hero-section {
+  padding-top: 5rem;
+  height: 100vh !important;
+}
+//**************************************************
+//-------------------about section
+#about {
+  padding-bottom: 18rem;
+}
+//**************************************************
+//-------------------skills section
+section#skills {
+  letter-spacing: 0.8px;
+  .box {
+    border-radius: 12px;
+    margin-top: -9rem;
+    padding-top: 4rem;
+    padding-bottom: 4rem;
+  }
+  figure {
+    margin: 2rem 0;
+  }
+  .list-title {
+    margin-top: 2.5rem;
+    font-weight: 500;
+  }
+  ul {
+    list-style-type: none;
+  }
+  .column:not(:last-child) {
+    border-right: thin solid rgba(0, 0, 0, 0.1);
+  }
+}
+//works filter list 
+#filter-list {
+  margin-top: 4rem;
+  position: relative;
+  ul {
+    display: flex;
+  }
+  li {
+    padding: 0.4rem 2rem;
+    &:hover {
+      a {
+        color: $primary;
+      }
+    }
+    &.active-filter {
+      a {
+        color: $primary;
+      }
+    }
+  }
+  a {
+    color: $lowBlack;
+  }
+  .active-indicator {
+    transition: all 0.35s cubic-bezier(0.25, 0.25, 0.25, 1.25);
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    border-radius: 4px;
+    height: 0.2rem;
+    width: 0%;
+    background: $primary;
+  }
+}
+//**************************************************
+//-------------------PROJECTS GRID SECTION
+.dark-overlay {
+  background-color: $primary-dark;
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  z-index: 1;
+}
+.project-grid {
+  margin-top: 4rem;
+  .title {
+    color: white;
+  }
+  .dark-overlay {
+    border-radius: $border-rounded;
+    opacity: 0;
+    transition: 0.34s all ease-in-out;
+  }
+  figure {
+    overflow: hidden;
+    border-radius: $border-rounded;
+    position: relative;
+    &:hover {
+      figcaption {
+        opacity: 1;
+      }
+      .project-thumb {
+        scale: 1.3;
+      }
+      .dark-overlay {
+        opacity: 1;
+      }
+    }
+  }
+
+  .project-thumb {
+    border-radius: $border-rounded;
+    transition: 0.34s all ease-in-out;
+    transform: scale(1);
+  }
+  figcaption {
+    opacity: 0;
+    position: absolute;
+    top: 50%;
+    transition: 0.35s all ease-in-out;
+    transform: translateY(-50%);
+    left: 0;
+    z-index: 1;
+    width: 100%;
+    padding: 0 2rem;
+    text-align: center;
+    .button {
+      color: white !important;
+    }
+  }
+}
+//**************************************************
+//-------------------CLIENTS SECTION
+#clients-grid {
+  margin-top: 4rem;
+  .image img {
+    transition: 0.3s all ease-in-out;
+    cursor: pointer;
+    &:hover {
+      margin-top: -0.8rem;
+      box-shadow: 0 0.5em 1em -0.125em rgba(10, 10, 10, 0.1),
+        0 0px 0 1px rgba(10, 10, 10, 0.02);
+      border-radius: 4px;
+    }
+  }
+}
+//**************************************************
+//-------------------START UP PROJECT
+#startup {
+  padding-bottom: 18rem;
+}
+.startup-projects {
+  margin-top: -11rem;
+  .box {
+    padding: 3rem 1rem;
+  }
+  img.logo {
+    height: 42px;
+    width: auto;
+    margin-bottom: 2rem;
+  }
+  .button {
+    border: none;
+    margin: 1rem 0;
+  }
+  p {
+    margin: 1rem 0;
+  }
+}
+//**************************************************
+//-------------------TESTIMONIALS SECTION
+.testimonials {
+  #carousel-inner {
+    padding-bottom: 10%;
+    overflow: hidden;
+  }
+  .avatar {
+    height: 96px;
+    border-radius: 100%;
+    margin: 2rem auto;
+  }
+  .quote {
+    font-size: x-large;
+    margin-bottom: 2rem;
+  }
+  .subtitle {
+    margin-bottom: 1rem;
+  }
+  .slider-navigation-previous,
+  .slider-navigation-next {
+    display: none !important;
+  }
+  .slider-pagination {
+    bottom: -10% !important;
+  }
+  .slider-pagination .slider-page {
+    border: 1px solid rgba(10, 10, 10, 0.2);
+    transition: 0.2s all ease-in-out;
+    &.is-active {
+      background-color: $purple;
+    }
+  }
+}
+//**************************************************
+//-------------------start a project  
+.call-to-action {
+  padding-top: 0 !important;
+  .box {
+    padding: 4rem 0;
+    * {
+      color: white !important;
+    }
+    .button {
+      border-color: white !important;
+      &:hover {
+        background-color: white !important;
+        color: $primary !important;
+      }
+    }
+  }
+}
+//**************************************************
+//-------------------footer
+footer {
+  background-color: $primary-dark;
+  margin-top: -9rem;
+  * {
+    color: white !important;
+  }
+  .button {
+    background-color: transparent;
+    border: 2px solid $primary;
+    color: white;
+    border-radius: 100% !important;
+    margin: 0.8rem;
+    &:hover {
+      background-color: $primary;
+      border-color: $primary;
+      color: $primary;
+    }
+  }
+  .copyright {
+    margin-top: 1.5rem;
+  }
+}
+// Import only what you need from Bulma
+@import "../bulma/bulma.sass";
